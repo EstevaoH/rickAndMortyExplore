@@ -1,6 +1,6 @@
 # Rick and Morty Explorer 
 
-O "Rick and Morty Explorer" é uma aplicação React que utiliza a API do Rick and Morty para criar uma lista de personagens com recursos de busca, filtragem e paginação. A aplicação também inclui uma tela de detalhes para cada personagem, com informações detalhadas e a opção de favoritar o personagem. A utilização do Redux para gerenciar o estado global da aplicação e do React Router DOM para definir as rotas entre os componentes garantem uma experiência de usuário fluida e consistente.
+O "Rick and Morty Explorer" é uma aplicação React que utiliza a API do Rick and Morty para criar uma lista de personagens com recursos de busca, filtragem e paginação. A aplicação também inclui uma tela de detalhes para cada personagem, com informações e a opção de favoritar o personagem. A utilização do Redux para gerenciar o estado global da aplicação e do React Router DOM para definir as rotas entre os componentes garantem uma experiência de usuário fluida e consistente.
 
 O "Rick and Morty Explorer" é um projeto desenvolvido em JavaScript utilizando a biblioteca React e a API do Rick and Morty (https://rickandmortyapi.com/documentation/). Ele consiste em uma tela de listagem de personagens,locais e episódio com busca e uma tela de detalhes que contém informações detalhadas sobre o personagem selecionado e uma opção para favoritar o personagem. O projeto também inclui recursos como paginação e filtragem.
 
