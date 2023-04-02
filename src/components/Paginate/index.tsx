@@ -33,7 +33,6 @@ export function Paginate({
     }
   }
   function handlePreviousFirstpage() {
-    console.log(currentPage);
     if (currentPage <= totalPage) {
       setCurrentPage(1);
     }

@@ -28,7 +28,6 @@ export function Locations() {
   function getSufixUrl() {
     for (let i = 1; i <= locations.length; i++) {
       sufixUrl.push(locations[i]?.url.slice(32));
-      console.log(sufixUrl);
     }
   }
 
@@ -36,9 +35,7 @@ export function Locations() {
     try {
       const response = await api.get(`location?page=${currentPage}`);
       setLocations(response.data.results);
-      console.log(response.data.results);
       setTotalPage(response.data.info.pages);
-      // setCurrentPage(1);
     } catch (error) {
       setLocations([]);
     }

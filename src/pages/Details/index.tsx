@@ -83,8 +83,6 @@ export function Detail() {
       setLocationID(response.data.id);
     } catch (error) {
       console.log(error);
-    } finally {
-
     }
   }
 
