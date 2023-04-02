@@ -26,7 +26,7 @@ export function Favorite() {
   return (
     <div>
       <FavoritesContainer>
-        <p>List of favorite characters!</p>
+        <h2>List of favorite characters!</h2>
         {loading ? (
           <LoadingDiv>
             <p>Loading...</p>

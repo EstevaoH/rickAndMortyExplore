@@ -6,7 +6,7 @@ export const FavoritesContainer = styled.main`
   margin: 4rem auto 0 ;
   margin-bottom: 2.5rem;
   padding: 0 1.5rem;
-  > p {
+  > h2 {
     margin-top: 30px;
     margin-bottom: 40px;
     font-size: 48px;
