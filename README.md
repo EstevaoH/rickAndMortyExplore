@@ -30,7 +30,7 @@ src/
 ## Como executar o projeto
 ```bash
 # Clone este repositório
-$ git clone https://github.com/DieissonNarde/api-rick-morty.git
+$ git clone https://github.com/EstevaoH/rickAndMortyExplore.git
 
 # Acesse a pasta do projeto no seu terminal
 $ cd api-rick-morty
