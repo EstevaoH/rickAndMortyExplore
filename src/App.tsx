@@ -6,15 +6,18 @@ import { BrowserRouter } from "react-router-dom";
 import { Router } from "./Routes";
 import { CharactersProvider } from "./context/Characters";
 import { FavoritesContextProvider } from "./context/Favorite";
+import { LocationsProvider } from "./context/Locations";
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <CharactersProvider>
-          <FavoritesContextProvider>
-            <Router />
-          </FavoritesContextProvider>
+          <LocationsProvider>
+            <FavoritesContextProvider>
+              <Router />
+            </FavoritesContextProvider>
+          </LocationsProvider>
         </CharactersProvider>
       </BrowserRouter>
       <GlobalStyle />

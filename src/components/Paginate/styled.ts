@@ -16,6 +16,7 @@ export const PaginatiosWrapper = styled.div`
   align-content: center;
   align-items: center;
   gap: 0.5rem;
+  width: 95%;
 `;
 export const PaginatiosContent = styled.div<ButtonPageProsp>`
   background: ${(props) =>

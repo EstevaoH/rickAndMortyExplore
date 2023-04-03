@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Loadding } from "../../components/Loading";
 import { NotFound } from "../../components/NotFound";
 import { Paginate } from "../../components/Paginate";
@@ -6,6 +6,8 @@ import { api } from "../../services/axios";
 import { ImageContainer, LocationsContainer, LocationsTable } from "./styled";
 import locationsImg from "../../assets/locations.svg";
 import { Link } from "react-router-dom";
+import { SearchForm } from "../../components/SearchForm";
+import { LocationsContext } from "../../context/Locations";
 
 interface Locations {
   id: number;
@@ -17,45 +19,42 @@ interface Locations {
 }
 
 export function Locations() {
+  const { loadLocations, locations, totalPage, setCurrentPage, currentPage } =
+    useContext(LocationsContext);
   const [loading, setLoading] = useState(false);
   const [notFound, setNotFound] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPage, setTotalPage] = useState(1);
-  const [locations, setLocations] = useState<Locations[]>([]);
 
-  const sufixUrl: any = [];
-
-  function getSufixUrl() {
-    for (let i = 1; i <= locations.length; i++) {
-      sufixUrl.push(locations[i]?.url.slice(32));
+  function checkEmptyList() {
+    if (locations.length != 0) {
+      setLoading(false);
+      setNotFound(false);
+    } else {
+      setNotFound(true);
+      setLoading(false);
     }
   }
 
-  async function loadLocations() {
-    try {
-      const response = await api.get(`location?page=${currentPage}`);
-      setLocations(response.data.results);
-      setTotalPage(response.data.info.pages);
-    } catch (error) {
-      setLocations([]);
-    }
-  }
+  useEffect(() => {
+    checkEmptyList();
+  }, [locations]);
+
   useEffect(() => {
     loadLocations();
-    getSufixUrl();
-  }, [currentPage]);
+  }, []);
 
   return (
     <LocationsContainer>
       <ImageContainer className="">
         <img src={locationsImg} alt="" />
       </ImageContainer>
+      <SearchForm />
       {loading ? (
         <Loadding />
       ) : notFound ? (
-        <NotFound />
-      ) : (
+        <NotFound content="The location you are trying to research went to another universe." />
+        ) : (
         <>
+
           <LocationsTable>
             <tbody>
               {locations?.map((content) => {

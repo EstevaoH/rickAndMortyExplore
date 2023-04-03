@@ -7,7 +7,7 @@ export const NotFoundDiv = styled.div`
   > h2 {
     font-size: 1.5rem;
     color: ${(props) => props.theme["yellow-500"]};
-    margin: 1.5rem 0;
+    margin: 2rem 0;
     text-align: center;
   }
   > img {

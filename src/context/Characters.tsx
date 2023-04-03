@@ -20,11 +20,9 @@ interface CharactersContextType {
   characters: Characters[];
   currentPage: number;
   totalPage: number;
-  setNamefilter: (query: string) => void;
   filterCharacters: (query: string) => Promise<void>;
   setCurrentPage: (page: number) => void;
-  loadCharacters: () => void;
-  nameFilter: string;
+  setNamefilter: (query: string) => void;
 }
 
 interface CharactersProviderProps {
@@ -45,7 +43,7 @@ export function CharactersProvider({ children }: CharactersProviderProps) {
       const response = await api.get(
         `character?page=${currentPage}&name=${query}`
       );
-
+        console.log('teste')
       setCharacters(response.data.results);
       setTotalPage(response.data.info.pages);
     } catch (error) {
@@ -65,6 +63,9 @@ export function CharactersProvider({ children }: CharactersProviderProps) {
   }
 
   useEffect(() => {
+    loadCharacters();
+  }, []);
+  useEffect(() => {
     filterCharacters(nameFilter);
   }, [currentPage, nameFilter]);
 
@@ -73,12 +74,10 @@ export function CharactersProvider({ children }: CharactersProviderProps) {
       value={{
         characters,
         filterCharacters,
-        setNamefilter,
         currentPage,
         setCurrentPage,
         totalPage,
-        loadCharacters,
-        nameFilter,
+        setNamefilter,
       }}
     >
       {children}

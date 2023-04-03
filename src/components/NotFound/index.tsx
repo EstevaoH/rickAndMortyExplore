@@ -4,7 +4,11 @@ import { NotFoundDiv } from "./styled";
 import { CharactersContext } from "../../context/Characters";
 import notFoundImg from "../../assets/notFound.gif";
 
-export function NotFound() {
+interface NotFoundPros {
+  content: string;
+}
+
+export function NotFound({ content }: NotFoundPros) {
   const { filterCharacters, setNamefilter } = useContext(CharactersContext);
   function resetForm() {
     filterCharacters("");
@@ -13,11 +17,7 @@ export function NotFound() {
 
   return (
     <NotFoundDiv>
-      <h2>
-        The character you are trying to research
-        <br />
-        went to another universe.
-      </h2>
+      <h2>{content}</h2>
       <img src={notFoundImg} />
       <Link to="/">
         <button onClick={resetForm} type="button">

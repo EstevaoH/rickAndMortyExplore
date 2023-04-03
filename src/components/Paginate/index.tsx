@@ -24,7 +24,7 @@ export function Paginate({
 }: PagesPros) {
   const pageNumbers = [];
 
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= totalPage; i++) {
     pageNumbers.push(i);
   }
   function handlePreviousLastpage() {

@@ -31,7 +31,7 @@ type Character = {
 };
 
 export function Home() {
-  const { characters, loadCharacters, totalPage, currentPage, setCurrentPage } =
+  const { characters, totalPage, currentPage, setCurrentPage } =
     useContext(CharactersContext);
   const { favorites, updateFavorites } = useContext(FavoritesContext);
   const [loading, setLoading] = useState(false);
@@ -59,17 +59,15 @@ export function Home() {
     checkEmptyList();
   }, [characters]);
 
-  useEffect(() => {
-    loadCharacters();
-  }, []);
-
   return (
     <HomeContainer>
       <SearchForm />
       {loading ? (
         <Loadding />
       ) : notFound ? (
-        <NotFound />
+        <NotFound
+          content="The character you are trying to research went to another universe."
+        />
       ) : (
         <>
           <CharactersTable>
